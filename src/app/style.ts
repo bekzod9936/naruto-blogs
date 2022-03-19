@@ -1,14 +1,23 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow: auto;
   display: flex;
-`
-export const Wrap = styled.div`
-  width: 100%;
-  display: grid;
-  height: fit-content;
-  grid-template-columns: 1fr 1fr 1fr;
-`
+  padding: 24px;
+  overflow: hidden;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--black);
+`;
+
+export const WrapSpinner = styled.div`
+  width: 90%;
+  flex-grow: 1;
+  display: flex;
+  padding: 24px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--darkblue);
+`;

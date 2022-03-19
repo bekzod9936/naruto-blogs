@@ -4,3 +4,23 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
+:root {
+  --darkblue: #131931;
+  --darkgray: #182037;
+  --black: #0d1021;
+  --purpule: #673fd7;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+  background-color: white;
+}
+
+.MuiOutlinedInput-root {
+  background-color: white !important;
+}

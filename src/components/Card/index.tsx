@@ -1,4 +1,5 @@
 import React from 'react';
+import { IData } from 'types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
   CardWrap,
@@ -6,26 +7,23 @@ import {
   TitleCard,
   WrapTitle,
   CardBody,
-  Date1,
+  Title,
 } from './style';
 
 interface Props {
   onClick: () => void;
-  value: {
-    image: string;
-    title: string;
-  };
+  value: IData;
 }
 
 const Card = ({ onClick, value }: Props) => {
-  const { image, title } = value;
+  const { image_url, title, type } = value;
   return (
     <>
       <CardWrap onClick={onClick}>
         <CardImg>
           <LazyLoadImage
             alt="image"
-            src={image ? image : ''}
+            src={image_url ? image_url : ''}
             height="100%"
             width="100%"
             style={{
@@ -42,8 +40,12 @@ const Card = ({ onClick, value }: Props) => {
         </CardImg>
         <CardBody>
           <WrapTitle>
+            <Title>Name:</Title>
             <TitleCard> {title}</TitleCard>
-            <Date1>date</Date1>
+          </WrapTitle>
+          <WrapTitle>
+            <Title>Type:</Title>
+            <TitleCard> {type}</TitleCard>
           </WrapTitle>
         </CardBody>
       </CardWrap>

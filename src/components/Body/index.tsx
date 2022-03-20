@@ -1,4 +1,5 @@
 import React from 'react';
+import { IData } from 'types';
 import Card from 'components/Card';
 import Modal from 'components/Modal';
 import { useAppSelector, useAppDispatch } from 'reduxtoolkit/hooks';
@@ -20,18 +21,15 @@ const Body = () => {
     <Container>
       <Wrapper>
         <WrapperCard>
-          {renderdata.map((item: any) => {
-            const { image_url, mal_id, title, type } = item;
+          {renderdata.map((item: IData) => {
+            const { mal_id } = item;
             return (
               <Card
                 key={mal_id}
                 onClick={() => {
                   dispatch(setModalData(item));
                 }}
-                value={{
-                  image: image_url,
-                  title: title,
-                }}
+                value={item}
               />
             );
           })}

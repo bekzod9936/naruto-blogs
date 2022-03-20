@@ -1,24 +1,5 @@
+import { IData, IOptions } from 'types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface IOptions {
-  label?: string;
-  value?: string;
-}
-interface IData {
-  airing?: boolean;
-  end_date?: string;
-  episodes?: number;
-  image_url?: string;
-  mal_id?: number;
-  members?: number;
-  rated?: string;
-  score?: number;
-  start_date?: string;
-  synopsis?: string;
-  title?: string;
-  type?: string;
-  url?: string;
-}
 
 interface IFetch {
   data: IData[];
@@ -99,11 +80,11 @@ export const blogsSlice = createSlice({
               );
       state.searchByName = action.payload;
     },
-    setOptionValue: (state, action: PayloadAction<IOptions>) => {
+    setOptionValue: (state, action: PayloadAction<IOptions | null>) => {
       if (state.option == null) {
         state.option = action.payload;
         state.renderdata = state.renderdata.filter(
-          ({ type }: IData) => type === action.payload.value
+          ({ type }: IData) => type === action.payload?.value
         );
       } else {
         if (action.payload === null) {
@@ -115,7 +96,7 @@ export const blogsSlice = createSlice({
         } else {
           state.option = action.payload;
           state.renderdata = state.renderdata
-            .filter(({ type }: IData) => type === action.payload.value)
+            .filter(({ type }: IData) => type === action.payload?.value)
             .slice(
               state.page * state.rowsPerPage,
               (state.page + 1) * state.rowsPerPage

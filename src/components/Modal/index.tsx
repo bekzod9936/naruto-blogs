@@ -1,4 +1,6 @@
 import React from 'react';
+import { IData } from 'types';
+import { Wrap, Title } from './style';
 import Dialog from '@mui/material/Dialog';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
@@ -18,7 +20,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 interface Props {
   open: boolean;
-  value: any;
+  value: IData;
   handleClose: () => void;
 }
 
@@ -53,7 +55,7 @@ const BootstrapDialogTitle = (props: DialogTitleProps) => {
 };
 
 const Modal = ({ open, value, handleClose }: Props) => {
-  console.log(value);
+  const { url, rated, type, score, title, synopsis, members } = value;
   return (
     <BootstrapDialog
       onClose={handleClose}
@@ -61,22 +63,28 @@ const Modal = ({ open, value, handleClose }: Props) => {
       open={open}
     >
       <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-        Modal title
+        {title}
       </BootstrapDialogTitle>
       <DialogContent dividers>
+        <Title>Description:</Title>
+        <Typography gutterBottom>{synopsis}</Typography>
+        <Wrap>
+          <Title>Members:</Title>
+          <Typography gutterBottom>{members}</Typography>
+          <Title>Rated:</Title>
+          <Typography gutterBottom>{rated}</Typography>
+        </Wrap>
+        <Wrap>
+          <Title>Score:</Title>
+          <Typography gutterBottom>{score}</Typography>
+          <Title>Type:</Title>
+          <Typography gutterBottom>{type}</Typography>
+        </Wrap>
+        <Title>Get more info:</Title>
         <Typography gutterBottom>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </Typography>
-        <Typography gutterBottom>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-        </Typography>
-        <Typography gutterBottom>
-          Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-          magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-          ullamcorper nulla non metus auctor fringilla.
+          <a href={url} target="_blank" rel="noreferrer">
+            {url}
+          </a>
         </Typography>
       </DialogContent>
     </BootstrapDialog>

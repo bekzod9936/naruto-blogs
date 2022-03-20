@@ -48,20 +48,12 @@ export const TitleCard = styled.div`
 export const WrapTitle = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  width: 100%;
   margin-bottom: 10px;
   grid-column-gap: 10px;
   word-break: break-word;
 `;
 
-export const Date1 = styled.div`
-  font-weight: normal;
-  font-size: 11px;
-  color: #8f8f8f;
+export const Title = styled.div`
+  color: black;
   white-space: nowrap;
-  margin-left: 10px;
-  @media (min-width: 1400) {
-    font-size: 12px;
-  }
 `;

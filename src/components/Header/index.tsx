@@ -1,3 +1,4 @@
+import { IOptions } from 'types';
 import Select from 'react-select';
 import React, { useState } from 'react';
 import { TextField } from '@mui/material';
@@ -7,15 +8,16 @@ import { setOptionValue, setSearchByName } from 'reduxtoolkit/blogs';
 
 const Header = () => {
   const dispatch = useAppDispatch();
-  const [option, setOption] = useState(null);
+  const [option, setOption] = useState<IOptions | null>(null);
   const { options, searchByName } = useAppSelector((state) => state.blogs);
 
-  const handleSelect = (e: any) => {
+  const handleSelect = (e: IOptions | null) => {
     setOption(e);
     dispatch(setOptionValue(e));
   };
 
-  const handleChange = (e: any) => dispatch(setSearchByName(e.target.value));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    dispatch(setSearchByName(e.target.value));
 
   return (
     <Container>

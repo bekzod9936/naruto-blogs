@@ -1,23 +1,6 @@
-import { IData, IOptions } from 'types';
 import { MultiValue } from 'react-select';
+import { IData, IOptions, IFetch, IBlogs } from 'types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface IFetch {
-  data: IData[];
-  types: string[];
-}
-interface IBlogs {
-  data: IData[];
-  page: number;
-  open: boolean;
-  rowsPerPage: number;
-  modaldata: IData;
-  renderdata: IData[];
-  searchByName: string;
-  length: number;
-  options: IOptions[];
-  option: any;
-}
 
 const initialState: IBlogs = {
   data: [],

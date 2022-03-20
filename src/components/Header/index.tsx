@@ -1,7 +1,7 @@
-import { IOptions } from 'types';
-import Select, { MultiValue } from 'react-select';
 import React from 'react';
+import { IOptions } from 'types';
 import { TextField } from '@mui/material';
+import Select, { MultiValue } from 'react-select';
 import { Container, Wrapper, Title, WrapFilter } from './style';
 import { useAppDispatch, useAppSelector } from 'reduxtoolkit/hooks';
 import { setOptionValue, setSearchByName } from 'reduxtoolkit/blogs';

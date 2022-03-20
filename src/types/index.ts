@@ -18,3 +18,20 @@ export interface IOptions {
   label?: string;
   value?: string;
 }
+
+export interface IFetch {
+  data: IData[];
+  types: string[];
+}
+export interface IBlogs {
+  data: IData[];
+  page: number;
+  open: boolean;
+  rowsPerPage: number;
+  modaldata: IData;
+  renderdata: IData[];
+  searchByName: string;
+  length: number;
+  options: IOptions[];
+  option: any;
+}

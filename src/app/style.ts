@@ -1,3 +1,4 @@
+import { device } from 'style';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -9,6 +10,11 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: var(--black);
+  @media (max-width: ${device.mobile}) {
+    overflow: auto;
+    height: 100%;
+    padding: 24px 0;
+  }
 `;
 
 export const WrapSpinner = styled.div`

@@ -8,6 +8,9 @@ export const Container = styled.div`
   display: flex;
   overflow: hidden;
   justify-content: center;
+  @media (max-width: ${device.mobile}) {
+    height: 100%;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -32,6 +35,7 @@ export const WrapperCard = styled.div`
     grid-template-columns: minmax(100%, 1fr);
     padding-right: 15px;
     grid-gap: 25px;
+    overflow: hidden;
   }
   @media (min-width: ${device.mobile}) and (max-width: ${device.planshet}) {
     grid-template-columns: repeat(2, minmax(40%, 1fr));

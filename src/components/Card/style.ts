@@ -1,3 +1,4 @@
+import { device } from 'style';
 import styled from 'styled-components';
 
 export const CardWrap = styled.div`
@@ -28,7 +29,7 @@ export const CardBody = styled.div`
   padding: 10px 20px;
   background-color: white;
   border-radius: 0 0 14px 14px;
-  @media (max-width: 600px) {
+  @media (max-width: ${device.mobile}) {
     padding: 10px;
   }
 `;
@@ -40,7 +41,7 @@ export const TitleCard = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  @media (min-width: 1400px) {
+  @media (min-width: ${device.laptop}) {
     font-size: 16px;
   }
 `;

@@ -2,8 +2,9 @@ import React from 'react';
 import { IData } from 'types';
 import Card from 'components/Card';
 import Modal from 'components/Modal';
+import TablePagination from '@mui/material/TablePagination';
 import { useAppSelector, useAppDispatch } from 'reduxtoolkit/hooks';
-import { Container, Wrapper, WrapperCard, WrapPag, Pagination } from './style';
+import { Container, Wrapper, WrapperCard, WrapPag } from './style';
 import {
   handleClose,
   setModalData,
@@ -40,8 +41,9 @@ const Body = () => {
           />
         </WrapperCard>
         <WrapPag>
-          <Pagination
+          <TablePagination
             page={page}
+            component={'div'}
             count={length}
             rowsPerPage={rowsPerPage}
             onPageChange={(

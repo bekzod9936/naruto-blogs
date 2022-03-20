@@ -46,16 +46,3 @@ export const WrapperCard = styled.div`
     grid-gap: 35px;
   }
 `;
-
-export const WrapPag = styled.div`
-  .MuiTablePagination-displayedRows,
-  .MuiTablePagination-selectLabel,
-  .MuiTablePagination-select {
-    color: white !important;
-  }
-  .MuiSvgIcon-root {
-    path {
-      fill: white;
-    }
-  }
-`;

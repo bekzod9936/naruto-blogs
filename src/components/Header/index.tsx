@@ -1,6 +1,6 @@
 import { IOptions } from 'types';
-import Select from 'react-select';
-import React, { useState } from 'react';
+import Select, { MultiValue } from 'react-select';
+import React from 'react';
 import { TextField } from '@mui/material';
 import { Container, Wrapper, Title, WrapFilter } from './style';
 import { useAppDispatch, useAppSelector } from 'reduxtoolkit/hooks';
@@ -8,11 +8,12 @@ import { setOptionValue, setSearchByName } from 'reduxtoolkit/blogs';
 
 const Header = () => {
   const dispatch = useAppDispatch();
-  const [option, setOption] = useState<IOptions | null>(null);
-  const { options, searchByName } = useAppSelector((state) => state.blogs);
 
-  const handleSelect = (e: IOptions | null) => {
-    setOption(e);
+  const { option, options, searchByName } = useAppSelector(
+    (state) => state.blogs
+  );
+
+  const handleSelect = (e: MultiValue<IOptions>) => {
     dispatch(setOptionValue(e));
   };
 
@@ -27,6 +28,7 @@ const Header = () => {
           <Select
             value={option}
             options={options}
+            isMulti
             isClearable={true}
             onChange={handleSelect}
             placeholder="Select Type"
